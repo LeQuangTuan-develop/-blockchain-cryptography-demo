@@ -3,9 +3,10 @@
     "baseUrl": "./",
     "paths": {
       "@/static/*": ["public/static/*"],
+      "@": ["src/"],
       "@/*": ["src/*"]
-    },
-    "jsx": "react"
+    }
   },
+  "include": ["src"],
   "exclude": ["node_modules"]
 }

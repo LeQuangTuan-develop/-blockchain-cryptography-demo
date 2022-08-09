@@ -1,11 +1,43 @@
-const { merge } = require('webpack-merge');
-const common = require('./webpack/webpack.common');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const envs = {
-  development: 'dev',
-  production: 'prod'
+module.exports = {
+  output: {
+    path: path.join(__dirname, "/dist"), // the bundle output path
+    filename: "bundle.js", // the name of the bundle
+  },
+  resolve: {
+    alias: {
+      components: path.resolve(__dirname, "src/components"),
+    },
+    extensions: [".js", ".jsx"],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "public/index.html", // to import index.html file inside index.js
+    }),
+  ],
+  devServer: {
+    port: 3030, // you can change the port
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/, // .js and .jsx files
+        exclude: /node_modules/, // excluding the node_modules folder
+        use: {
+          loader: "babel-loader",
+        },
+      },
+      {
+        test: /\.(sa|sc|c)ss$/, // styles files
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
+      {
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/, // to import images and fonts
+        loader: "url-loader",
+        options: { limit: false },
+      },
+    ],
+  },
 };
-/* eslint-disable global-require,import/no-dynamic-require */
-const env = envs[process.env.NODE_ENV || 'development'];
-const envConfig = require(`./webpack/webpack.${env}.js`);
-module.exports = merge(common, envConfig);
