@@ -1,43 +1,80 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const devMode = process.env.NODE_ENV !== "production";
 
 module.exports = {
+  entry: "./src/index.js",
   output: {
-    path: path.join(__dirname, "/dist"), // the bundle output path
-    filename: "bundle.js", // the name of the bundle
+    path: path.join(__dirname, "/build"),
+    filename: "bundle.js",
+    publicPath: "/",
   },
-  resolve: {
-    alias: {
-      components: path.resolve(__dirname, "src/components"),
-    },
-    extensions: [".js", ".jsx"],
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "public/index.html", // to import index.html file inside index.js
-    }),
-  ],
   devServer: {
-    port: 3030, // you can change the port
+    historyApiFallback: true,
+    port: 3030,
+    // compress: true,
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/, // .js and .jsx files
-        exclude: /node_modules/, // excluding the node_modules folder
-        use: {
-          loader: "babel-loader",
-        },
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ["babel-loader"],
       },
       {
-        test: /\.(sa|sc|c)ss$/, // styles files
-        use: ["style-loader", "css-loader", "sass-loader"],
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
       },
       {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/, // to import images and fonts
-        loader: "url-loader",
-        options: { limit: false },
+        test: /\.css$/,
+        use: [
+          devMode ? "style-loader" : MiniCssExtractPlugin.loader,
+
+          "css-loader",
+        ],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          devMode ? "style-loader" : MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true,
+              sassOptions: {
+                outputStyle: "compressed",
+              },
+              webpackImporter: false,
+            },
+          },
+        ],
       },
     ],
   },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src/"),
+    },
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+    }),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css",
+      ignoreOrder: true,
+    }),
+  ],
 };
