@@ -1,6 +1,6 @@
 import React from "react";
 const Hash = () => {
-  return <>Hashss</>;
+  return <>Hashse</>;
 };
 
 export default Hash;
