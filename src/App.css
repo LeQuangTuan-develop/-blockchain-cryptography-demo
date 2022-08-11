@@ -10,3 +10,6 @@ html {
 a:has(.active) {
   background-color: black;
 }
+a {
+  text-decoration: none;
+}

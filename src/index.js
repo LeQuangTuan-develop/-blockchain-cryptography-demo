@@ -4,9 +4,8 @@ import { HelmetProvider } from "react-helmet-async";
 import { Provider } from "react-redux";
 import App from "./App";
 import "./App.css";
-import "./style/scss/style.scss";
 import { store } from "./store/store";
-
+import "./style/scss/style.scss";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
