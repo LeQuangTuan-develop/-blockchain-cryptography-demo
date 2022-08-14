@@ -2,42 +2,42 @@ import "./style.scss";
 import React, { useState } from "react";
 import { RSA } from "../../utils/algorithms/rsa";
 
-const RSAEnCrypt = () => {
+const DigitalSignature = () => {
   const [p, setP] = useState("");
   const [q, setQ] = useState("");
   const [originRsaMsg, setOriginRsaMsg] = useState("");
-  const [encRsaMsg, setEncRsaMsg] = useState("");
+  const [signature, setSignature] = useState("");
   const [keyInfo, setKeyInfo] = useState({
     publicKey: "",
     privateKey: "",
   });
-  function computeKeysClicked() {
+  function computeSigKeysClicked() {
     var rsa = new RSA(p, q);
     rsa.computeKeys();
 
     setKeyInfo({ publicKey: rsa.pk, privateKey: rsa.sk });
   }
 
-  function encryptRSAClicked() {
+  function digitalSignClicked() {
     var rsa = new RSA(p, q);
     rsa.computeKeys();
 
-    let msgEncrypt = rsa.encrypt(originRsaMsg);
-    setEncRsaMsg(msgEncrypt);
+    let sign = rsa.signature(originRsaMsg);
+    setSignature(sign);
   }
 
-  function decryptRSAClicked() {
+  function verifyClicked() {
     var rsa = new RSA(p, q);
     rsa.computeKeys();
 
-    let msgDecrypt = rsa.decrypt(encRsaMsg);
-    setOriginRsaMsg(msgDecrypt);
+    console.log(originRsaMsg, signature);
+    if (rsa.verify(originRsaMsg, signature)) alert("valid signature");
+    else alert("invalid signature");
   }
-
   return (
     <>
-      <div className="container_rsa">
-        <h3>RSA</h3>
+      <div className="container_digital">
+        <h3>Digital Signature</h3>
         <div
           className="row"
           style={{
@@ -81,7 +81,7 @@ const RSAEnCrypt = () => {
               <button
                 className="form-control btn btn-primary"
                 id="floatingInput"
-                onClick={computeKeysClicked}
+                onClick={computeSigKeysClicked}
                 style={{ margin: "5px", width: "150px" }}
               >
                 Compute Keys
@@ -120,6 +120,7 @@ const RSAEnCrypt = () => {
               id="floatingInput"
               style={{ height: "80px" }}
               value={originRsaMsg}
+              //   value={originRsaMsg}
               onChange={(e) => setOriginRsaMsg(e.target.value)}
             />
           </div>
@@ -132,32 +133,33 @@ const RSAEnCrypt = () => {
               <button
                 className="form-control btn btn-primary"
                 id="floatingInput"
-                onClick={encryptRSAClicked}
-                style={{ margin: "5px", width: "100px" }}
+                onClick={digitalSignClicked}
+                style={{ margin: "5px", width: "150px" }}
               >
-                Encrypt
+                Digital Sign
               </button>
               <button
                 className="form-control btn btn-primary"
                 id="floatingInput"
-                onClick={decryptRSAClicked}
-                style={{ margin: "5px", width: "100px" }}
+                onClick={verifyClicked}
+                style={{ margin: "5px", width: "150px" }}
               >
-                Decrypt
+                Verify Signature
               </button>
             </div>
           </div>
           <div className="form-group mb-3" style={{ alignItems: "flex-start" }}>
             <label htmlFor="floatingInput" className="label">
-              Encrypted Message
+              Digital Signature
             </label>
             <textarea
               type="text"
               className="form-control"
               id="floatingInput"
               style={{ height: "80px" }}
-              value={encRsaMsg}
-              onChange={(e) => setEncRsaMsg(e.target.value)}
+              value={signature}
+              //   value={signature}
+              onChange={(e) => setSignature(e.target.value)}
             />
           </div>
         </div>
@@ -166,4 +168,4 @@ const RSAEnCrypt = () => {
   );
 };
 
-export default RSAEnCrypt;
+export default DigitalSignature;

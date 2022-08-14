@@ -10,9 +10,9 @@ export const HEADERS = [
     label: "Hash",
   },
   {
-    name: "block",
-    href: "/block",
-    label: "Block",
+    name: "nonce",
+    href: "/nonce",
+    label: "Nonce",
   },
   {
     name: "chain",
@@ -39,6 +39,11 @@ export const HEADERS = [
     href: "/rsa",
     label: "RSA",
   },
+  {
+    name: "digital-signature",
+    href: "/digital-signature",
+    label: "Digital Signature",
+  },
 ];
 
 const Header = () => {
@@ -50,44 +55,44 @@ const Header = () => {
   }, [location.pathname]);
 
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg bg-light fixed-top w-100 d-flex justify-content-between">
-        <div className="container-fluid d-flex justify-content-center">
-          <Link to="/" style={{ fontSize: "20px" }}>
-            Blockchain SkyGik
-          </Link>
+    <nav className="navbar navbar-expand-lg fixed-top">
+      <div className="container-fluid">
+        <div className="navbar-header">
+          <a className="brand" href="/">
+            SkyG Blockchain
+          </a>
         </div>
-        <div className="container-fluid ">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarText"
-            aria-controls="navbarText"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarText">
-            <ul className="navbar-nav me-auto mb-lg-0">
-              {HEADERS.map((item) => (
-                <li className="nav-item" key={item.name}>
-                  <Link
-                    to={item.href}
-                    className={
-                      item.href === pathname ? "nav-link active" : "nav-link"
-                    }
-                  >
-                    <span>{item.label}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+
+        <button
+          type="button"
+          className="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div
+          className="navbar-collapse collapse"
+          id="navbarCollapse"
+          style={{ height: "fit-content" }}
+        >
+          <ul className="navbar-nav navbar-right me-auto mb-2 mb-lg-0">
+            {HEADERS.map((item) => (
+              <li className="nav-item" key={item.name}>
+                <Link
+                  to={item.href}
+                  className={
+                    item.href === pathname ? "nav-link active" : "nav-link"
+                  }
+                >
+                  <span>{item.label}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 };
 

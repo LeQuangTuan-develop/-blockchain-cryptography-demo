@@ -1,0 +1,26 @@
+.container_chain {
+  height: 100%;
+  width: 2900px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 80%;
+  .block {
+    width: 600px;
+    padding: 0px 50px;
+    .row {
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .form-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    @media screen and (max-width: 500px) {
+      .form-group {
+        display: block;
+      }
+    }
+  }
+}

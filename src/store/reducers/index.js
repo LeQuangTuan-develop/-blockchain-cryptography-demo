@@ -1,8 +1,5 @@
 import { combineReducers } from "redux";
-import { layoutSlice } from "./silce/layoutSlice";
-
-const reducer = combineReducers({
-  layout: layoutSlice,
+import counterReducer from "./counterReducer";
+export default combineReducers({
+  count: counterReducer,
 });
-
-export default reducer;

@@ -1,7 +1,9 @@
 .main {
-  height: 100vh;
+  height: max-content;
   width: 100%;
-  margin-top: 100px;
+  margin-bottom: 40px;
+  overflow: auto;
+  padding-top: 100px;
   display: flex;
   justify-content: center;
   align-items: flex-start;

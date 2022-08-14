@@ -6,6 +6,9 @@
 html {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+/* body {
+  overflow: hidden;
+} */
 
 a:has(.active) {
   background-color: black;
