@@ -25,6 +25,11 @@ export const HEADERS = [
     label: "Merkle tree",
   },
   {
+    name: "Bloom Filter",
+    href: "/bloom-filter",
+    label: "Bloom Filter",
+  },
+  {
     name: "patricia-tree",
     href: "/patricia-tree",
     label: "Patricia tree",
@@ -44,6 +49,16 @@ export const HEADERS = [
     href: "/digital-signature",
     label: "Digital Signature",
   },
+  {
+    name: "interactive-zkp",
+    href: "/interactive-zkp",
+    label: "Interactive ZKP",
+  },
+  {
+    name: "non-interactive-zkp",
+    href: "/non-interactive-zkp",
+    label: "Non-Interactive ZKP",
+  },
 ];
 
 const Header = () => {
@@ -58,7 +73,7 @@ const Header = () => {
     <nav className="navbar navbar-expand-lg fixed-top">
       <div className="container-fluid">
         <div className="navbar-header">
-          <a className="brand" href="/">
+          <a className="brand" href="/  ">
             SkyG Blockchain
           </a>
         </div>
