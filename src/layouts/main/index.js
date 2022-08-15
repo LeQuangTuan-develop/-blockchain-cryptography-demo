@@ -9,7 +9,8 @@ import Home from "../../pages/home/Home";
 import CaesarEnCrypt from "../../pages/caesar/Caesar";
 import DigitalSignature from "../../pages/digital-signature/DigitalSignature";
 import BlockchainComponent from "../../pages/blockchain/BlockChainCpn";
-
+import BloomFilter from "../../pages/bloomFilter/BloomFilter";
+import MerkleTree from "../../pages/merkleTree/MerkleTree";
 const Main = () => {
   return (
     <div className="main">
@@ -18,10 +19,12 @@ const Main = () => {
         <Route path="/hash" element={<Hash />} />
         <Route path="/nonce" element={<Nonce />} />
         <Route path="/chain" element={<Chain />} />
+        <Route path="/merkle-tree" element={<MerkleTree />} />
         <Route path="/caesar" element={<CaesarEnCrypt />} />
         <Route path="/rsa" element={<Rsa />} />
         <Route path="/digital-signature" element={<DigitalSignature />} />
         <Route path="/mint-block" element={<BlockchainComponent />} />
+        <Route path="/bloom-filter" element={<BloomFilter />} />
       </Routes>
     </div>
   );

@@ -9,9 +9,10 @@
     a {
       margin: -2px 0px 0px 0px !important;
       font-size: 15px !important;
-      padding: 20px !important;
+      padding: 15px 15px !important;
       color: #9d9d9d !important;
       text-shadow: 0 -1px 0 rgb(0 0 0 / 25%) !important;
+      width: fit-content !important;
     }
     a.active {
       background-color: black;
@@ -23,7 +24,7 @@
     }
   }
   .navbar-header {
-    width: 36%;
+    width: 25%;
     margin-right: 0%;
     text-align: center;
     a {
