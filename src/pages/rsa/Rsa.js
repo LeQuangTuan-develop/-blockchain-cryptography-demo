@@ -36,7 +36,7 @@ const RSAEnCrypt = () => {
 
   return (
     <>
-      <div className="container_rsa">
+      <div className="container_block">
         <h3>RSA</h3>
         <div
           className="row"

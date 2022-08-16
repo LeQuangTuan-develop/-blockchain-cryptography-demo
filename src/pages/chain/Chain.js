@@ -55,11 +55,9 @@ const Chain = () => {
       verify: true,
     },
   ]);
-  console.log(chain);
 
   return (
     <>
-      <h3>BlockChain</h3>
       <div className="container_chain">
         {chain.map((item, index) => (
           <Block

@@ -45,14 +45,19 @@ const BloomFilter = () => {
         width: "100%",
         justifyContent: "center",
         alignItems: "center",
+        marginTop: "35px",
       }}
     >
-      <h4 style={{ alignSelf: "flex-start", marginLeft: "220px" }}>
+      <h3 style={{ alignSelf: "flex-start", marginLeft: "220px" }}>
         Bloom Filter
-      </h4>
+      </h3>
       <div
         className="container_block"
-        style={{ background: "rgba(196, 227, 183, 0.952)" }}
+        style={{
+          background: "rgba(196, 227, 183, 0.952)",
+          height: "fit-content",
+          marginBottom: "300px",
+        }}
       >
         <div className="mb-3">
           <ul className="list-group list-group-horizontal-xxl">

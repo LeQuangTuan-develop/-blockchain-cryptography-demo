@@ -1,15 +1,15 @@
 import "./style.scss";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Home from "../../pages/home/Home";
 import Rsa from "../../pages/rsa/Rsa";
+import BloomFilter from "../../pages/bloomFilter/BloomFilter";
 import Nonce from "../../pages/nonce/Nonce";
 import Chain from "../../pages/chain/Chain";
 import Hash from "../../pages/hash/Hash";
-import Home from "../../pages/home/Home";
 import CaesarEnCrypt from "../../pages/caesar/Caesar";
 import DigitalSignature from "../../pages/digital-signature/DigitalSignature";
 import BlockchainComponent from "../../pages/blockchain/BlockChainCpn";
-import BloomFilter from "../../pages/bloomFilter/BloomFilter";
 import MerkleTree from "../../pages/merkleTree/MerkleTree";
 const Main = () => {
   return (

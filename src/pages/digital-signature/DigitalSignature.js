@@ -36,7 +36,7 @@ const DigitalSignature = () => {
   }
   return (
     <>
-      <div className="container_digital">
+      <div className="container_block">
         <h3>Digital Signature</h3>
         <div
           className="row"

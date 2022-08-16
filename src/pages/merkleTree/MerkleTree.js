@@ -1,44 +1,18 @@
-import React, { useState } from "react";
-import { Treant } from "./tree-viz/Treant";
 import "./style.scss";
-const MerkleTree = () => {
-  const [tree, setTree] = useState({
-    content: "",
-    size: "",
-  });
-  const [loading, setLoading] = useState(false);
-  function initConstructTree() {
-    var data = tree.content;
-    var chunks = tree.size;
-    var nodeList = convertToNodeList(getChunksFromData(data, chunks));
-    var nodeTreeStructure = constructTree(nodeList)[0].toString();
-    var chart_config = {
-      chart: {
-        container: "#merkle-tree",
-        connectors: {
-          type: "step",
-          style: {
-            "stroke-width": 2,
-          },
-        },
-      },
-      nodeStructure: nodeTreeStructure,
-    };
-    new Treant(chart_config);
-  }
+import React, { useState } from "react";
+import Sketch from "react-p5";
+import { addTreeNode, verify, tree, setup, draw } from "./lib/sketch";
 
-  function getChunksFromData(data, chunkSize) {
-    var data = data.split("");
-    return _.chunk(data, Math.floor(data.length / chunkSize) + 1).map(function (
-      splitData
-    ) {
-      return splitData.join("");
-    });
-  }
+const MerkleTree = () => {
+  const [loading, setLoading] = useState(false);
+  const [state, setState] = useState({
+    content: "",
+    node: "",
+  });
 
   return (
     <>
-      <div className="container_block">
+      <div className="container_block" style={{ height: "140vh" }}>
         <h3>Merkle Tree</h3>
         <div className="row">
           <div className="form-group mb-3" style={{ alignItems: "flex-start" }}>
@@ -49,23 +23,9 @@ const MerkleTree = () => {
               type="text"
               className="form-control"
               id="floatingInput"
-              style={{ height: "150px" }}
-              value={tree.content}
-              onChange={(e) => setTree({ ...tree, content: e.target.value })}
-            />
-          </div>
-
-          <div className="form-group mb-3">
-            <label htmlFor="floatingInput" className="label">
-              Content:
-            </label>
-            <input
-              type="number"
-              className="form-control"
-              id="floatingInput"
-              style={{ height: "40px" }}
-              value={tree.size}
-              onChange={(e) => setTree({ ...tree, size: e.target.value })}
+              style={{ height: "80px" }}
+              value={state.content}
+              onChange={(e) => setState({ ...tree, content: e.target.value })}
             />
           </div>
           <div
@@ -79,9 +39,49 @@ const MerkleTree = () => {
                 id="floatingInput"
                 style={{ width: "170px" }}
                 disabled={loading}
-                // onClick={initConstructTree}
+                onClick={() => addTreeNode(state.content, tree)}
               >
-                <span>Construct Tree</span>
+                <span>Add</span>
+                {loading ? (
+                  <span
+                    class="spinner-border spinner-border-sm"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                ) : (
+                  ""
+                )}
+              </button>
+            </div>
+          </div>
+
+          <div className="form-group mb-3" style={{ alignItems: "flex-start" }}>
+            <label htmlFor="floatingInput" className="label">
+              Node:
+            </label>
+            <textarea
+              type="text"
+              className="form-control"
+              id="floatingInput"
+              style={{ height: "80px" }}
+              value={state.node}
+              onChange={(e) => setState({ ...state, node: e.target.value })}
+            />
+          </div>
+          <div
+            className="form-group mb-3"
+            style={{ justifyContent: "flex-start" }}
+          >
+            <label htmlFor="floatingInput" className="label"></label>
+            <div style={{ flex: "99%" }}>
+              <button
+                className="form-control btn btn-primary"
+                id="floatingInput"
+                style={{ width: "170px" }}
+                disabled={loading}
+                onClick={() => verify(state.node, tree)}
+              >
+                <span>verify</span>
                 {loading ? (
                   <span
                     class="spinner-border spinner-border-sm"
@@ -98,12 +98,12 @@ const MerkleTree = () => {
             <label htmlFor="floatingInput" className="label">
               Tree Construct:
             </label>
-            <textarea
-              type="text"
-              className="form-control"
-              id="floatingInput"
-              style={{ height: "350px" }}
-            />
+
+            <div className="form-control">
+              <div>
+                <Sketch setup={setup} draw={draw} />
+              </div>
+            </div>
           </div>
         </div>
       </div>
