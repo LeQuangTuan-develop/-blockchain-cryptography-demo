@@ -33,3 +33,7 @@ lerna-debug.log*
 
 # IDE - VSCode
 .vscode
+
+#lock files
+package-lock.json
+yarn.lock
