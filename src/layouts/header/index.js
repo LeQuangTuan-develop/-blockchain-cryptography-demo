@@ -50,6 +50,11 @@ export const HEADERS = [
     label: "Digital Signature",
   },
   {
+    name: "Elliptic Curve",
+    href: "/elliptic-curve",
+    label: "elliptic-curve",
+  },
+  {
     name: "interactive-zkp",
     href: "/interactive-zkp",
     label: "Interactive ZKP",

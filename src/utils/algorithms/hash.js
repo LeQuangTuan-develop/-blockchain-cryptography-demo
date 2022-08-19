@@ -4,7 +4,7 @@
  * Original code by Angel Marin, Paul Johnston
  **/
 
-export function SHA256(st) {
+export function sha256(st) {
   const chrsz = 8;
   const hexcase = 0;
 

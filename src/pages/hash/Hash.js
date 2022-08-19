@@ -1,6 +1,5 @@
-import { data } from "autoprefixer";
 import React, { useEffect, useState } from "react";
-import { SHA256 } from "../../utils/algorithms/hash";
+import { sha256 } from "../../utils/algorithms/hash";
 import "./style.scss";
 
 const Hash = () => {
@@ -12,7 +11,7 @@ const Hash = () => {
 
   // handle Functional ----------------------------------------
   function hashButtonClicked() {
-    setBlock({ data: block.data, hashValue: SHA256(block.data) });
+    setBlock({ data: block.data, hashValue: sha256(block.data) });
   }
 
   // useEffect -------------------------------------------------

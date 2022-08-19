@@ -1,4 +1,4 @@
-export const RSA = function (p, q) {
+export const rsa = function (p, q) {
   (this.p = p), (this.q = q);
 
   // calculate x^y%m

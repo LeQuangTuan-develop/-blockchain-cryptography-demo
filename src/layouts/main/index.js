@@ -12,6 +12,7 @@ import DigitalSignature from "../../pages/digital-signature/DigitalSignature";
 import BlockchainComponent from "../../pages/blockchain/BlockChainCpn";
 import MerkleTree from "../../pages/merkleTree/MerkleTree";
 import PatriciaTree from "../../pages/patriciaTree/PatriciaTree";
+import EllipticCurve from "../../pages/elliptic curve/Elliptic-curve";
 const Main = () => {
   return (
     <div className="main">
@@ -27,6 +28,7 @@ const Main = () => {
         <Route path="/rsa" element={<Rsa />} />
         <Route path="/digital-signature" element={<DigitalSignature />} />
         <Route path="/mint-block" element={<BlockchainComponent />} />
+        <Route path="/elliptic-curve" element={<EllipticCurve />} />
       </Routes>
     </div>
   );

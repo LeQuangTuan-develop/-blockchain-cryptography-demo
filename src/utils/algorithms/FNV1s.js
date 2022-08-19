@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-export const FNV1s = function (msg) {
+export const fnv1s = function (msg) {
   // thanks Borgar!
   // http://stackoverflow.com/questions/1240408/reading-bytes-from-a-javascript-string/1242596#1242596
   function stringToBytes(str) {

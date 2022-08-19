@@ -1,6 +1,6 @@
 import "./style.scss";
 import React, { useState } from "react";
-import { RSA } from "../../utils/algorithms/rsa";
+import { rsa } from "../../utils/algorithms/rsa";
 
 const DigitalSignature = () => {
   const [p, setP] = useState("");
@@ -27,7 +27,7 @@ const DigitalSignature = () => {
   }
 
   function verifyClicked() {
-    var rsa = new RSA(p, q);
+    var rsa = new rsa(p, q);
     rsa.computeKeys();
 
     console.log(originRsaMsg, signature);

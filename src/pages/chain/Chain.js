@@ -1,6 +1,6 @@
 import { compareObjectEqual } from "../../utils/common/compareObject";
 import React, { useEffect, useState } from "react";
-import { SHA256 } from "../../utils/algorithms/hash";
+import { sha256 } from "../../utils/algorithms/hash";
 import "./style.scss";
 const Chain = () => {
   const [chain, setChain] = useState([
@@ -84,7 +84,7 @@ const Block = ({ data, chain, setChain, indexBlock, verify }) => {
     do {
       nonce++;
       let content = block.id + block.hashContent + nonce + block.previousHash;
-      let hashValue = SHA256(content);
+      let hashValue = sha256(content);
       if (hashValue.substring(0, 4) == "0000") {
         setBlock({
           ...block,

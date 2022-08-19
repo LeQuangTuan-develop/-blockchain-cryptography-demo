@@ -1,6 +1,6 @@
 import "./style.scss";
 import React, { useState } from "react";
-import { Caesar } from "../../utils/algorithms/Caesar";
+import { caesar } from "../../utils/algorithms/caesar";
 
 const CaesarEnCrypt = () => {
   const [content1, setContent1] = useState("");
@@ -8,7 +8,7 @@ const CaesarEnCrypt = () => {
   const [key, setKey] = useState("");
 
   function encryptClicked() {
-    let crypto = new Caesar(key * 1);
+    let crypto = new caesar(key * 1);
     let msg = content1;
     console.log(key, crypto, msg);
     let enMsg = crypto.encrypt(msg);
@@ -16,7 +16,7 @@ const CaesarEnCrypt = () => {
   }
 
   function decryptClicked() {
-    let crypto = new Caesar(key * 1);
+    let crypto = new caesar(key * 1);
     let msg = content2;
     let enMsg = crypto.decrypt(msg);
     setContent1(enMsg);

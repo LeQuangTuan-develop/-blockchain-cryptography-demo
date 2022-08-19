@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { FNV1s } from "../../utils/algorithms/FNV1s";
-import { Murmur } from "../../utils/algorithms/Murmur";
+import { fnv1s } from "../../utils/algorithms/fnv1s";
+import { murmur } from "../../utils/algorithms/murmur";
 import "./style.scss";
 const BloomFilter = () => {
   const [data, setData] = useState({
@@ -11,8 +11,8 @@ const BloomFilter = () => {
 
   const addName = () => {
     setData({ ...data, valueInput: [...data.valueInput, data.value] });
-    let h1 = new FNV1s();
-    let h2 = new Murmur();
+    let h1 = new fnv1s();
+    let h2 = new murmur();
 
     let n1 = h1.hash(data.value) % 15;
     let n2 = h2.hash(data.value) % 15;
@@ -28,8 +28,8 @@ const BloomFilter = () => {
   };
 
   const checkName = () => {
-    let h1 = new FNV1s();
-    let h2 = new Murmur();
+    let h1 = new fnv1s();
+    let h2 = new murmur();
     let n1 = h1.hash(data.value) % 15;
     let n2 = h2.hash(data.value) % 15;
 

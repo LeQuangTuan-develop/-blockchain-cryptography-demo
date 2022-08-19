@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { SHA256 } from "../../utils/algorithms/hash";
+import { sha256 } from "../../utils/algorithms/hash";
 import "./style.scss";
 
 const Nonce = () => {
@@ -19,7 +19,7 @@ const Nonce = () => {
     do {
       nonce++;
       let content = block.id + block.hashContent + nonce;
-      let hashValue = SHA256(content);
+      let hashValue = sha256(content);
       if (hashValue.substring(0, 4) == "0000") {
         setBlock({
           ...block,

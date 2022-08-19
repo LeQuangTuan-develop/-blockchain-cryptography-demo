@@ -10,6 +10,11 @@ const MerkleTree = () => {
     node: "",
   });
 
+  const handleAddNode = () => {
+    addTreeNode(state.content, tree);
+    setState({ ...state, content: "" });
+  };
+
   return (
     <>
       <div className="container_block" style={{ height: "140vh" }}>
@@ -39,7 +44,7 @@ const MerkleTree = () => {
                 id="floatingInput"
                 style={{ width: "170px" }}
                 disabled={loading}
-                onClick={() => addTreeNode(state.content, tree)}
+                onClick={handleAddNode}
               >
                 <span>Add</span>
                 {loading ? (

@@ -1,4 +1,4 @@
-export const Caesar = function (key) {
+export const caesar = function (key) {
   this.key = key;
   function shiftMsg(msg, k) {
     let result = "";

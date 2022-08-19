@@ -2,12 +2,12 @@ import styled from "styled-components";
 import React, { useEffect, useState } from "react";
 import Block from "./Block";
 import AddBlock from "./AddBlock";
-import { SHA256 } from "../../utils/algorithms/hash";
+import { sha256 } from "../../utils/algorithms/hash";
 import { Blockchain } from "./lib/blockchain";
 
 function calculateHash(testNonce, data, prevHash, timeStamp = Date.now()) {
   const content = testNonce + data + prevHash + timeStamp;
-  return SHA256(content).toString();
+  return sha256(content).toString();
 }
 
 export default function BlockchainComponent() {

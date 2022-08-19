@@ -1,6 +1,6 @@
 import "./style.scss";
 import React, { useState } from "react";
-import { RSA } from "../../utils/algorithms/rsa";
+import { rsa } from "../../utils/algorithms/rsa";
 
 const RSAEnCrypt = () => {
   const [p, setP] = useState("");
@@ -12,14 +12,14 @@ const RSAEnCrypt = () => {
     privateKey: "",
   });
   function computeKeysClicked() {
-    var rsa = new RSA(p, q);
+    var rsa = new rsa(p, q);
     rsa.computeKeys();
 
     setKeyInfo({ publicKey: rsa.pk, privateKey: rsa.sk });
   }
 
   function encryptRSAClicked() {
-    var rsa = new RSA(p, q);
+    var rsa = new rsa(p, q);
     rsa.computeKeys();
 
     let msgEncrypt = rsa.encrypt(originRsaMsg);
@@ -27,7 +27,7 @@ const RSAEnCrypt = () => {
   }
 
   function decryptRSAClicked() {
-    var rsa = new RSA(p, q);
+    var rsa = new rsa(p, q);
     rsa.computeKeys();
 
     let msgDecrypt = rsa.decrypt(encRsaMsg);

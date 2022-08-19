@@ -1,4 +1,4 @@
-import { SHA256 } from "../../../utils/algorithms/hash";
+import { sha256 } from "../../../utils/algorithms/hash";
 
 export class Block {
   constructor(prevHash, index, data, hash = 0) {
@@ -13,10 +13,10 @@ export class Block {
   }
 
   recalculateHash() {
-    this.hash = SHA256(
+    this.hash = sha256(
       this.nonce + this.transactions + this.index + this.prevHash
     ).toString();
-    return SHA256(
+    return sha256(
       this.nonce + this.data + this.index + this.prevHash
     ).toString();
   }

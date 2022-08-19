@@ -1,4 +1,4 @@
-import { SHA256 } from "../../../utils/algorithms/hash";
+import { sha256 } from "../../../utils/algorithms/hash";
 import { Block } from "./block";
 
 export class Blockchain {
@@ -24,7 +24,7 @@ export class Blockchain {
   }
 
   calculateHash(block, testNonce) {
-    return SHA256(
+    return sha256(
       testNonce + block.data + block.index + block.prevHash
     ).toString();
   }

@@ -1,6 +1,6 @@
 //via https://gist.github.com/588423
 //thanks github.com/raycmorgan!
-export const Murmur = function () {
+export const murmur = function () {
   this.hash = function (str) {
     return this.hashWithSeed(str, 1088);
   };
