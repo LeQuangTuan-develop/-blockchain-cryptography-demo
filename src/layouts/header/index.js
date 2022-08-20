@@ -78,7 +78,7 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      <div style={{ height: "90px" }}></div>
+      <div style={{ height: "170px" }}></div>
     </>
   );
 };

@@ -8,7 +8,7 @@ const DrawByP5 = () => {
   let angle2 = 0.0;
   let segLength = 130;
   function setup(p5, canvasParentRef) {
-    p5.createCanvas(widthDraw, HeightDraw).parent(canvasParentRef);
+    p5.createCanvas(widthDraw, HeightDraw + 100).parent(canvasParentRef);
     p5.strokeWeight(30);
 
     //Stroke with a semi-transparent white

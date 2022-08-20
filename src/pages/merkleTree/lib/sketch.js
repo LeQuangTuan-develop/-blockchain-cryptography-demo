@@ -93,7 +93,7 @@ export var tree = null;
 const txs = [];
 
 export function setup(p5, canvasParentRef) {
-  p5.createCanvas(widthDraw, HeightDraw).parent(canvasParentRef);
+  p5.createCanvas(widthDraw, HeightDraw + 50).parent(canvasParentRef);
 }
 
 export function draw(p5) {
