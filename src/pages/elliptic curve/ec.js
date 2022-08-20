@@ -7,7 +7,7 @@ const dist = (p1, p2) => {
 export const EC = function (x, y, w, h, a, b) {
   (this.a = a), (this.b = b);
   (this.x = x), (this.y = y), (this.w = w), (this.h = h);
-  (this.xc = x - (w >> 1) + 150), (this.yc = y - (h >> 1) + 150);
+  (this.xc = x - (w >> 1) + 200), (this.yc = y - (h >> 1) + 80);
   this.points = [];
   this.mouseDown = false;
   const points = [];

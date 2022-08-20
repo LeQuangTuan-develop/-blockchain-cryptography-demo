@@ -12,25 +12,25 @@ const RSAEnCrypt = () => {
     privateKey: "",
   });
   function computeKeysClicked() {
-    var rsa = new rsa(p, q);
-    rsa.computeKeys();
+    var Rsa = new rsa(p, q);
+    Rsa.computeKeys();
 
-    setKeyInfo({ publicKey: rsa.pk, privateKey: rsa.sk });
+    setKeyInfo({ publicKey: Rsa.pk, privateKey: Rsa.sk });
   }
 
   function encryptRSAClicked() {
-    var rsa = new rsa(p, q);
-    rsa.computeKeys();
+    var Rsa = new rsa(p, q);
+    Rsa.computeKeys();
 
-    let msgEncrypt = rsa.encrypt(originRsaMsg);
+    let msgEncrypt = Rsa.encrypt(originRsaMsg);
     setEncRsaMsg(msgEncrypt);
   }
 
   function decryptRSAClicked() {
-    var rsa = new rsa(p, q);
-    rsa.computeKeys();
+    var Rsa = new rsa(p, q);
+    Rsa.computeKeys();
 
-    let msgDecrypt = rsa.decrypt(encRsaMsg);
+    let msgDecrypt = Rsa.decrypt(encRsaMsg);
     setOriginRsaMsg(msgDecrypt);
   }
 

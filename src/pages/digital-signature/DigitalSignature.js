@@ -12,26 +12,26 @@ const DigitalSignature = () => {
     privateKey: "",
   });
   function computeSigKeysClicked() {
-    var rsa = new RSA(p, q);
-    rsa.computeKeys();
+    var Rsa = new rsa(p, q);
+    Rsa.computeKeys();
 
-    setKeyInfo({ publicKey: rsa.pk, privateKey: rsa.sk });
+    setKeyInfo({ publicKey: Rsa.pk, privateKey: Rsa.sk });
   }
 
   function digitalSignClicked() {
-    var rsa = new RSA(p, q);
-    rsa.computeKeys();
+    var Rsa = new rsa(p, q);
+    Rsa.computeKeys();
 
-    let sign = rsa.signature(originRsaMsg);
+    let sign = Rsa.signature(originRsaMsg);
     setSignature(sign);
   }
 
   function verifyClicked() {
-    var rsa = new rsa(p, q);
-    rsa.computeKeys();
+    var Rsa = new rsa(p, q);
+    Rsa.computeKeys();
 
     console.log(originRsaMsg, signature);
-    if (rsa.verify(originRsaMsg, signature)) alert("valid signature");
+    if (Rsa.verify(originRsaMsg, signature)) alert("valid signature");
     else alert("invalid signature");
   }
   return (

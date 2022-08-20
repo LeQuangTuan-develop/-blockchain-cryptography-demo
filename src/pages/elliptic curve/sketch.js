@@ -3,11 +3,11 @@ import { EC } from "./ec";
 const ec = new EC(400, 300, 300, 300, 0, 2);
 
 export function setup(p5, canvasParentRef) {
-  p5.createCanvas(widthDraw, HeightDraw).parent(canvasParentRef);
+  p5.createCanvas(widthDraw + 130, HeightDraw).parent(canvasParentRef);
 }
 
 export function draw(p5) {
-  p5.background(255);
+  p5.background("#7fffd4");
   ec.draw(p5);
 }
 
