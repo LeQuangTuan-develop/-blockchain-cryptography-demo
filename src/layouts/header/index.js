@@ -5,64 +5,19 @@ import { useLocation } from "react-router-dom";
 
 export const HEADERS = [
   {
-    name: "hash",
-    href: "/hash",
-    label: "Hash",
+    name: "home",
+    href: "/home",
+    label: "Home",
   },
   {
-    name: "nonce",
-    href: "/nonce",
-    label: "Nonce",
+    name: "our-team",
+    href: "/our-team",
+    label: "Our Team",
   },
   {
-    name: "chain",
-    href: "/chain",
-    label: "Chain",
-  },
-  {
-    name: "merkle-tree",
-    href: "/merkle-tree",
-    label: "Merkle tree",
-  },
-  {
-    name: "Bloom Filter",
-    href: "/bloom-filter",
-    label: "Bloom Filter",
-  },
-  {
-    name: "patricia-tree",
-    href: "/patricia-tree",
-    label: "Patricia tree",
-  },
-  {
-    name: "caesar",
-    href: "/caesar",
-    label: "Caesar",
-  },
-  {
-    name: "rsa",
-    href: "/rsa",
-    label: "RSA",
-  },
-  {
-    name: "digital-signature",
-    href: "/digital-signature",
-    label: "Digital Signature",
-  },
-  {
-    name: "Elliptic Curve",
-    href: "/elliptic-curve",
-    label: "elliptic-curve",
-  },
-  {
-    name: "interactive-zkp",
-    href: "/interactive-zkp",
-    label: "Interactive ZKP",
-  },
-  {
-    name: "non-interactive-zkp",
-    href: "/non-interactive-zkp",
-    label: "Non-Interactive ZKP",
+    name: "our-writings",
+    href: "/our-writings",
+    label: "Our Writings",
   },
 ];
 
@@ -75,44 +30,56 @@ const Header = () => {
   }, [location.pathname]);
 
   return (
-    <nav className="navbar navbar-expand-lg fixed-top">
-      <div className="container-fluid">
-        <div className="navbar-header">
-          <a className="brand" href="/  ">
-            SkyG Blockchain
-          </a>
+    <>
+      <nav className="navbar navbar-expand-lg fixed-top ft-0">
+        <div className="container-fluid">
+          <button
+            type="button"
+            className="navbar-toggler"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="navbar-header">
+            <Link to="/">SkyG Te@m</Link>
+          </div>
         </div>
-
-        <button
-          type="button"
-          className="navbar-toggler"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarCollapse"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div
-          className="navbar-collapse collapse"
-          id="navbarCollapse"
-          style={{ height: "fit-content" }}
-        >
-          <ul className="navbar-nav navbar-right me-auto mb-2 mb-lg-0">
-            {HEADERS.map((item) => (
-              <li className="nav-item" key={item.name}>
-                <Link
-                  to={item.href}
-                  className={
-                    item.href === pathname ? "nav-link active" : "nav-link"
-                  }
-                >
-                  <span>{item.label}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+      </nav>
+      <nav className="navbar navbar-expand-lg fixed-top ft-50">
+        <div className="container-fluid">
+          <button
+            type="button"
+            className="navbar-toggler"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div
+            className="navbar-collapse collapse"
+            id="navbarCollapse"
+            style={{ height: "fit-content" }}
+          >
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              {HEADERS.map((item) => (
+                <li className="nav-item" key={item.name}>
+                  <Link
+                    to={item.href}
+                    className={
+                      item.href === pathname ? "nav-link active" : "nav-link"
+                    }
+                  >
+                    <span>{item.label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+      <div style={{ height: "90px" }}></div>
+    </>
   );
 };
 

@@ -1,8 +1,9 @@
+import { HeightDraw, widthDraw } from "../../config/const";
 import { EC } from "./ec";
 const ec = new EC(400, 300, 300, 300, 0, 2);
 
 export function setup(p5, canvasParentRef) {
-  p5.createCanvas(800, 600).parent(canvasParentRef);
+  p5.createCanvas(widthDraw, HeightDraw).parent(canvasParentRef);
 }
 
 export function draw(p5) {

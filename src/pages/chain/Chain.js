@@ -185,11 +185,11 @@ const Block = ({ data, chain, setChain, indexBlock, verify }) => {
 
   return (
     <div className="block">
-      {indexBlock === 0 ? (
+      {/* {indexBlock === 0 ? (
         <h3>BlockChain</h3>
       ) : (
         <h3 style={{ marginTop: "40px" }}></h3>
-      )}
+      )} */}
       <div
         className="row"
         style={{

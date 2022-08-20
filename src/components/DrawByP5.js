@@ -1,3 +1,4 @@
+import { HeightDraw, widthDraw } from "../config/const";
 import React from "react";
 import Sketch from "react-p5";
 
@@ -6,25 +7,22 @@ const DrawByP5 = () => {
   let angle1 = 0.0;
   let angle2 = 0.0;
   let segLength = 130;
-  let width = 900;
-  let height = 720;
-  let color = 10;
   function setup(p5, canvasParentRef) {
-    p5.createCanvas(1000, 720).parent(canvasParentRef);
+    p5.createCanvas(widthDraw, HeightDraw).parent(canvasParentRef);
     p5.strokeWeight(30);
 
     //Stroke with a semi-transparent white
 
     //Position the "shoulder" of the arm in the center of the canvas
-    x = width * 0.5;
-    y = height * 0.5;
+    x = widthDraw * 0.5;
+    y = HeightDraw * 0.5;
   }
 
   function draw(p5) {
     p5.background(0);
     //Change the angle of the segments according to the mouse positions
-    angle1 = (p5.mouseX / p5.float(width) - 0.5) * -p5.TWO_PI;
-    angle2 = (p5.mouseY / p5.float(height) - 0.5) * p5.PI;
+    angle1 = (p5.mouseX / p5.float(widthDraw) - 0.5) * -p5.TWO_PI;
+    angle2 = (p5.mouseY / p5.float(HeightDraw) - 0.5) * p5.PI;
 
     //use push and pop to "contain" the transforms. Note that
     // even though we draw the segments using a custom function,
@@ -33,7 +31,7 @@ const DrawByP5 = () => {
     segment(x, y, angle1, p5, 0);
     segment(segLength, 0, angle2, p5, 50);
     segment(segLength, 0, angle2 + angle1, p5, 100);
-    segment(segLength, 0, angle2 + angle1, p5, 200);
+    // segment(segLength, 0, angle2 + angle1, p5, 200);
     p5.pop();
   }
 

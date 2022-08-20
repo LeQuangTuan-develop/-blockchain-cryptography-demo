@@ -48,15 +48,13 @@ const BloomFilter = () => {
         marginTop: "35px",
       }}
     >
-      <h3 style={{ alignSelf: "flex-start", marginLeft: "220px" }}>
+      {/* <h3 style={{ alignSelf: "flex-start", marginLeft: "220px" }}>
         Bloom Filter
-      </h3>
+      </h3> */}
       <div
         className="container_block"
         style={{
-          background: "rgba(196, 227, 183, 0.952)",
           height: "fit-content",
-          marginBottom: "300px",
         }}
       >
         <div className="mb-3">

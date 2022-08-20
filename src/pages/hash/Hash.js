@@ -22,13 +22,8 @@ const Hash = () => {
   // console.table(block);
   return (
     <div className="container_block">
-      <h3>SHA256 Hash</h3>
-      <div
-        className="row"
-        style={{
-          backgroundColor: "rgba(196, 227, 183, 0.9)",
-        }}
-      >
+      {/* <h3>SHA256 Hash</h3> */}
+      <div className="row">
         <div className="form-group mb-3" style={{ alignItems: "flex-start" }}>
           <label htmlFor="floatingInput" className="label">
             Content:

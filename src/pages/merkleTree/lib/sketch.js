@@ -1,3 +1,4 @@
+import { HeightDraw, widthDraw } from "../../../config/const";
 import { SHA256 } from "./sha256";
 import { TreeNode } from "./treenode";
 
@@ -90,11 +91,9 @@ export function addTreeNode(st) {
 
 export var tree = null;
 const txs = [];
-const Width = 800;
-const Height = 500;
 
 export function setup(p5, canvasParentRef) {
-  p5.createCanvas(Width, Height).parent(canvasParentRef);
+  p5.createCanvas(widthDraw, HeightDraw).parent(canvasParentRef);
 }
 
 export function draw(p5) {

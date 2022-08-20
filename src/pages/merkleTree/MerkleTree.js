@@ -17,8 +17,8 @@ const MerkleTree = () => {
 
   return (
     <>
-      <div className="container_block" style={{ height: "140vh" }}>
-        <h3>Merkle Tree</h3>
+      <div className="container_block">
+        {/* <h3>Merkle Tree</h3> */}
         <div className="row">
           <div className="form-group mb-3" style={{ alignItems: "flex-start" }}>
             <label htmlFor="floatingInput" className="label">

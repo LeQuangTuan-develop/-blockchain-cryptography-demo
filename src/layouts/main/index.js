@@ -1,36 +1,40 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import RoutesPage from "../routes";
 import "./style.scss";
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import Home from "../../pages/home/Home";
-import Rsa from "../../pages/rsa/Rsa";
-import BloomFilter from "../../pages/bloomFilter/BloomFilter";
-import Nonce from "../../pages/nonce/Nonce";
-import Chain from "../../pages/chain/Chain";
-import Hash from "../../pages/hash/Hash";
-import CaesarEnCrypt from "../../pages/caesar/Caesar";
-import DigitalSignature from "../../pages/digital-signature/DigitalSignature";
-import BlockchainComponent from "../../pages/blockchain/BlockChainCpn";
-import MerkleTree from "../../pages/merkleTree/MerkleTree";
-import PatriciaTree from "../../pages/patriciaTree/PatriciaTree";
-import EllipticCurve from "../../pages/elliptic curve/Elliptic-curve";
 const Main = () => {
+  const [title, setTitle] = useState("Title2");
   return (
-    <div className="main">
-      <Routes>
-        <Route path="/" exact element={<Home />} />
-        <Route path="/hash" element={<Hash />} />
-        <Route path="/nonce" element={<Nonce />} />
-        <Route path="/chain" element={<Chain />} />
-        <Route path="/merkle-tree" element={<MerkleTree />} />
-        <Route path="/patricia-tree" element={<PatriciaTree />} />
-        <Route path="/bloom-filter" element={<BloomFilter />} />
-        <Route path="/caesar" element={<CaesarEnCrypt />} />
-        <Route path="/rsa" element={<Rsa />} />
-        <Route path="/digital-signature" element={<DigitalSignature />} />
-        <Route path="/mint-block" element={<BlockchainComponent />} />
-        <Route path="/elliptic-curve" element={<EllipticCurve />} />
-      </Routes>
-    </div>
+    <>
+      <main className="main">
+        <div className="group-side">
+          <div className="left-side">
+            <Link to="/hash">Hash</Link>
+            <Link to="/nonce">Nonce</Link>
+            <Link to="/chain">Chain</Link>
+          </div>
+          <div className="wrapper-view">
+            <h3 style={{ position: "absolute", top: "-40px" }}>{title}</h3>
+            <div className="view-page">
+              <RoutesPage />
+            </div>
+          </div>
+          <div className="right-side">
+            <Link to="/caesar">Caesar</Link>
+            <Link to="/rsa">Rsa</Link>
+            <Link to="/digital-signature">Digital Signature</Link>
+            {/* <Link to="/mint-block">Blockchain</Link> */}
+          </div>
+        </div>
+        <div className="bottom-side">
+          <Link to="/bloom-filter">BloomFilter</Link>
+          <Link to="/patricia-tree">PatriciaTree</Link>
+          <Link to="/merkle-tree">MerkleTree</Link>
+          <Link to="/elliptic-curve">Elliptic Curve</Link>
+        </div>
+      </main>
+      ;
+    </>
   );
 };
 

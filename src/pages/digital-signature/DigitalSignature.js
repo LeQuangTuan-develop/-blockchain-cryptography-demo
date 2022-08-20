@@ -37,13 +37,8 @@ const DigitalSignature = () => {
   return (
     <>
       <div className="container_block">
-        <h3>Digital Signature</h3>
-        <div
-          className="row"
-          style={{
-            backgroundColor: "rgba(196, 227, 183, 0.9)",
-          }}
-        >
+        {/* <h3>Digital Signature</h3> */}
+        <div className="row">
           <div className="form-group mb-3">
             <label htmlFor="floatingInput" className="label">
               p

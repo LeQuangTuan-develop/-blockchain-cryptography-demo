@@ -59,12 +59,12 @@ const Nonce = () => {
   // console.table(block);
   return (
     <div className="container_block">
-      <h3>Nonce</h3>
+      {/* <h3>Nonce</h3> */}
       <div
         className="row"
         style={{
           backgroundColor: colorBlock
-            ? "rgba(196, 227, 183, 0.9)"
+            ? "transparent"
             : "rgba(250, 220, 220, 0.9)",
         }}
       >
