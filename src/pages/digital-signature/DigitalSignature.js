@@ -69,7 +69,11 @@ const DigitalSignature = () => {
 
           <div
             className="form-group mb-3"
-            style={{ justifyContent: "flex-start" }}
+            style={{
+              justifyContent: "flex-start",
+              paddingLeft: "0px",
+              marginLeft: "5px",
+            }}
           >
             <label htmlFor="floatingInput" className="label"></label>
             <div style={{ flex: "99%" }}>
@@ -105,7 +109,12 @@ const DigitalSignature = () => {
             />
           </div>
 
-          <div className="form-group mb-3" style={{ alignItems: "flex-start" }}>
+          <div
+            className="form-group mb-3"
+            style={{
+              alignItems: "flex-start",
+            }}
+          >
             <label htmlFor="floatingInput" className="label">
               Original Message
             </label>
@@ -121,7 +130,11 @@ const DigitalSignature = () => {
           </div>
           <div
             className="form-group mb-3"
-            style={{ justifyContent: "flex-start" }}
+            style={{
+              justifyContent: "flex-start",
+              paddingLeft: "0px",
+              marginLeft: "5px",
+            }}
           >
             <label htmlFor="floatingInput" className="label"></label>
             <div style={{ flex: "99%" }}>

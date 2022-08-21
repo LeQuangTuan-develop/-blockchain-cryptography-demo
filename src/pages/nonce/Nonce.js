@@ -133,7 +133,11 @@ const Nonce = () => {
 
         <div
           className="form-group mb-3"
-          style={{ justifyContent: "flex-start" }}
+          style={{
+            justifyContent: "flex-start",
+            paddingLeft: "0px",
+            marginLeft: "7px",
+          }}
         >
           <label htmlFor="floatingInput" className="label"></label>
           <div style={{ flex: "99%" }}>
