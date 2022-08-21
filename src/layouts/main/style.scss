@@ -1,14 +1,23 @@
 .main {
+  min-height: 120vh;
   height: fit-content;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  background-color: black;
+  padding-top: 180px;
+  padding-bottom: 50px;
+
+  input,
+  textarea,
+  li {
+    border: 1px solid black !important;
+  }
   .group-side {
-    height: fit-content;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: flex-start;
     .left-side {
       min-height: 500px;
@@ -31,7 +40,6 @@
         background-color: #ffffff;
         width: 100%;
         border-radius: 20px;
-        border: 3px solid black;
         margin-bottom: 50px;
         overflow: auto;
       }
@@ -49,7 +57,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 9999;
   }
   a {
     height: 100px;
@@ -59,12 +66,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.3s;
-    background-color: black;
-    color: white;
+    transition: all 0.5s;
+    border-radius: 10px;
+    color: black;
+    background-color: rgb(255, 255, 255);
     &:hover {
-      background-color: rgb(255, 255, 255);
-      border: 3px solid black;
+      color: white;
+      background-color: black;
+      border: 3px solid rgb(255, 255, 255);
     }
   }
 }

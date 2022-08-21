@@ -58,14 +58,21 @@ const Nonce = () => {
 
   // console.table(block);
   return (
-    <div className="container_block">
+    <div
+      className="container_block"
+      style={{
+        height: "500px",
+        width: "1000px",
+        padding: "0px",
+        margin: "0px",
+      }}
+    >
       {/* <h3>Nonce</h3> */}
       <div
         className="row"
         style={{
-          backgroundColor: colorBlock
-            ? "transparent"
-            : "rgba(250, 220, 220, 0.9)",
+          background: colorBlock ? "transparent" : "#d6220b",
+          padding: "20px",
         }}
       >
         <div className="form-group mb-3">

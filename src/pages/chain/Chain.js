@@ -59,16 +59,18 @@ const Chain = () => {
   return (
     <>
       <div className="container_chain">
-        {chain.map((item, index) => (
-          <Block
-            key={index}
-            data={item}
-            chain={chain}
-            setChain={setChain}
-            indexBlock={index}
-            verify={item.verify}
-          />
-        ))}
+        <div className="horizontal-scroll-wrapper squares">
+          {chain.map((item, index) => (
+            <Block
+              key={index}
+              data={item}
+              chain={chain}
+              setChain={setChain}
+              indexBlock={index}
+              verify={item.verify}
+            />
+          ))}
+        </div>
       </div>
     </>
   );
@@ -127,32 +129,6 @@ const Block = ({ data, chain, setChain, indexBlock, verify }) => {
 
     if (nonce >= 1000000) alert("Cant find nonce value within 1 million steps");
   }
-  //   async function calculateHash(id, hasC, preH) {
-  //     // console.log(id, hasC, preH);
-  //     let content = id + hasC + preH;
-  //     let HasV = await SHA256(content);
-  //     return { preH, HasV };
-  //   }
-
-  //   function changeHash() {
-  //     let arrData = chain.map((item, index) => {
-  //       const obj = Object.assign({}, item);
-  //       calculateHash(
-  //         chain[index].id,
-  //         chain[index].hashContent,
-  //         chain[index].hashValue
-  //       ).then((rs) => {
-  //         // console.log(chain[index]);
-  //         obj["previousHash"] = rs.previousHash;
-  //         obj["hashValue"] = rs.hashValue;
-  //         obj["hashValue"] = rs.hashValue;
-  //       });
-  //       obj;
-  //     });
-  //     console.log(...arrData);
-  //   }
-
-  //   console.log(chain);
 
   // useEffect -------------------------------------------------
 
@@ -193,9 +169,7 @@ const Block = ({ data, chain, setChain, indexBlock, verify }) => {
       <div
         className="row"
         style={{
-          backgroundColor: verify
-            ? "rgba(196, 227, 183, 0.9)"
-            : "rgba(250, 220, 220, 0.9)",
+          backgroundColor: verify ? "black" : "#d6220b",
         }}
       >
         <div className="form-group mb-3">

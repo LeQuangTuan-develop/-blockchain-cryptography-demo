@@ -78,7 +78,6 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      <div style={{ height: "170px" }}></div>
     </>
   );
 };

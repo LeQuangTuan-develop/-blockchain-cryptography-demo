@@ -1,10 +1,11 @@
 import React from "react";
-import DrawByP5 from "../../components/DrawByP5";
-
+import Sketch from "react-p5";
+import { setup, draw } from "./sketch";
+import "./style.scss";
 const Home = () => {
   return (
     <>
-      <DrawByP5 />
+      <Sketch setup={setup} draw={draw} />
     </>
   );
 };
